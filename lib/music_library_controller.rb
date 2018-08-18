@@ -71,8 +71,6 @@ class MusicLibraryController
   #find_by_name
   #check to make sure it's there
 
-  #list_songs_by_genre prints all songs by a particular genre in a numbered list (alphabetized by song name)
-  #puts "#{i}. #{song.artist.name} - #{song.name}
   def list_songs_by_genre
     puts "Please enter the name of a genre:"
     Song.all.sort { |a, b| a.name <=> b.name}.each.with_index(1) do |songs, i|
