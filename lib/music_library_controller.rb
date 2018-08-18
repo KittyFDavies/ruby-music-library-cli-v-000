@@ -67,10 +67,17 @@ class MusicLibraryController
     end
   end
 
-  #find_by_name
-  #check to make sure it's there
-
   def list_songs_by_genre
+
+    puts "Please enter the name of a genre:"
+    input = gets.strip
+    genre = Genre.find_by_name(input)
+    if genre != nil
+      genre.songs.sort { |a, b| a.name <=> b.name}.each.with_index(1) do |song, i|
+        puts "#{i}. #{song.artist.name} - #{song.name}"
+      end
+    end
+    
     puts "Please enter the name of a genre:"
     Song.all.sort { |a, b| a.name <=> b.name}.each.with_index(1) do |songs, i|
       songs.artist.songs.each do |song|
@@ -90,5 +97,4 @@ class MusicLibraryController
     end
   end
 
-#  binding.pry
 end
