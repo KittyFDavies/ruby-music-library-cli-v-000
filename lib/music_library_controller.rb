@@ -77,15 +77,6 @@ class MusicLibraryController
         puts "#{i}. #{song.artist.name} - #{song.name}"
       end
     end
-
-    puts "Please enter the name of a genre:"
-    Song.all.sort { |a, b| a.name <=> b.name}.each.with_index(1) do |songs, i|
-      songs.artist.songs.each do |song|
-        if song.artist.name == gets.strip
-          puts "#{i}. #{song.artist.name} - #{song.name}"
-        end
-      end
-    end
   end
 
   def play_song
